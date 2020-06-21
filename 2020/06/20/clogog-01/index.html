@@ -227,7 +227,7 @@
 <p>编写引脚电平获取函数。<br><img src="/images/stm32_02/12.png" srcset="/img/loading.gif" alt=""><br><img src="/images/stm32_02/13.png" srcset="/img/loading.gif" alt=""></p>
 <p>关于按键编号，是声明在头文件的枚举<br><img src="/images/stm32_02/14.png" srcset="/img/loading.gif" alt=""></p>
 <p>除了按键编号与按键状态的枚举外，还有一个键值的枚举，让我们保留按键是按下，长按还是松开等等。<br><img src="/images/stm32_02/15.png" srcset="/img/loading.gif" alt=""></p>
-<p>声明了这些枚举后，我们得用实体去接收啊，如果是C++，就是创建对象了，当然了，C语言没有对象，所以我没创建一个结构体去接收。<br><img src="/images/stm32_02/16.png" srcset="/img/loading.gif" alt=""><br><img src="/images/stm32_02/17.png" srcset="/img/loading.gif" alt=""></p>
+<p>声明了这些枚举后，我们得用实体去接收啊，如果是C++，就是创建对象了，当然了，C语言没有对象，所以我们创建一个结构体去接收。<br><img src="/images/stm32_02/16.png" srcset="/img/loading.gif" alt=""><br><img src="/images/stm32_02/17.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="3-按键轮询状态机代码编写"><a href="#3-按键轮询状态机代码编写" class="headerlink" title="3.按键轮询状态机代码编写"></a>3.按键轮询状态机代码编写</h3><p>先定义触发长按的时间为1s。<br><img src="/images/stm32_02/18.png" srcset="/img/loading.gif" alt=""></p>
 <p>开始编写三个按键一起轮询的按键检测函数，利用状态机编程。<br><img src="/images/stm32_02/19.png" srcset="/img/loading.gif" alt=""></p>
 <p>在按键弹起状态时，如果检测到引脚为低电平，则跳转到按键按键抖动状态。<br><img src="/images/stm32_02/20.png" srcset="/img/loading.gif" alt=""></p>

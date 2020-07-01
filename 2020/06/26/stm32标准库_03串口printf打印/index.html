@@ -26,7 +26,7 @@
   <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
 
   
-    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/github-gist.min.css" />
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/xt256.min.css" />
   
 
   
@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      936 字
+      922 字
     </span>
   
 
@@ -220,7 +220,7 @@
 <p><img src="/images/stm32_03/2.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_03/3.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="开始编写串口初始化函数和重定义printf打印函数。"><a href="#开始编写串口初始化函数和重定义printf打印函数。" class="headerlink" title="开始编写串口初始化函数和重定义printf打印函数。"></a>开始编写串口初始化函数和重定义printf打印函数。</h3><p><img src="/images/stm32_03/4.png" srcset="/img/loading.gif" alt=""><br>在usart.c文件中添加串口初始化函数，F407和F103有些区别，1是串口挂载的时钟总线，2是F103对于串口TX和RX是分别初始化为复用推挽输出和上拉输入的。</p>
-<pre><code class="hljs markdown">/*
+<div class="hljs"><pre><code class="hljs markdown">/*
 <span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span><span class="hljs-strong">*****</span>
 <span class="hljs-bullet">*	</span>函 数 名: uart1_Init
 <span class="hljs-bullet">*	</span>功能说明: 串口1初始化函数
@@ -260,7 +260,7 @@ void uart1_Init(u32 bound)
 <span class="hljs-code">	</span>
 <span class="hljs-code">    USART_Cmd(USART1, ENABLE);  //使能串口1 </span>
 <span class="hljs-code">	//USART_ClearFlag(USART1, USART_FLAG_TC);   //解决第一个字节丢失问题,如果第一个字节丢失可以加上这行</span>
-&#125;</code></pre>
+&#125;</code></pre></div>
 <p>对于重定义printf函数有两种方法，一种是使用微库，一种是不是用微库（正点原子）使用的方法。</p>
 <h4 id="1-使用微库重定义printf函数"><a href="#1-使用微库重定义printf函数" class="headerlink" title="1.使用微库重定义printf函数"></a>1.使用微库重定义printf函数</h4><p><img src="/images/stm32_03/5.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_03/6.png" srcset="/img/loading.gif" alt=""></p>
@@ -270,7 +270,7 @@ void uart1_Init(u32 bound)
 <h4 id="2-不使用微库重定义printf函数"><a href="#2-不使用微库重定义printf函数" class="headerlink" title="2.不使用微库重定义printf函数"></a>2.不使用微库重定义printf函数</h4><p><strong>在原来的fputc函数的基础上再加入避免使用半主机模式的一些代码（参考正点原子）。</strong></p>
 <p><img src="/images/stm32_03/8.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_03/9.png" srcset="/img/loading.gif" alt=""></p>
-<p>可以参考这篇对于[半主机模式][1]的理解<br>[1]:<a href="http://www.stmcu.org.cn/module/forum/thread-598294-1-1.html" target="_blank" rel="noopener">http://www.stmcu.org.cn/module/forum/thread-598294-1-1.html</a></p>
+<p>可以参考这篇对于<a href="http://www.stmcu.org.cn/module/forum/thread-598294-1-1.html" target="_blank" rel="noopener"半主机模式"">半主机模式</a>的理解</p>
 <p><strong>小结:所谓重定义就是修改fputc函数的底层代码，修改成运行一次串口发送一个字节的数据。</strong></p>
 <h4 id="3-测试"><a href="#3-测试" class="headerlink" title="3.测试"></a>3.测试</h4><p><img src="/images/stm32_03/10.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_03/11.png" srcset="/img/loading.gif" alt=""></p>

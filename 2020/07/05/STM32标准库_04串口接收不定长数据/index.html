@@ -163,7 +163,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      968 字
+      1.1k 字
     </span>
   
 
@@ -173,7 +173,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      10
+      11
        分钟
     </span>
   
@@ -235,35 +235,35 @@
 <td align="center">111</td>
 <td align="center">0 : 4</td>
 <td align="center">0位抢占优先级<br>4位响应优先级</td>
-<td align="center"></td>
+<td align="center">2^0 = 1个抢占优先级<br>2^4 =16个响应优先级</td>
 </tr>
 <tr>
 <td align="center">1</td>
 <td align="center">110</td>
 <td align="center">1 : 3</td>
 <td align="center">1位抢占优先级<br>3位响应优先级</td>
-<td align="center"></td>
+<td align="center">2^1 = 2个抢占优先级<br>2^3 = 8个响应优先级</td>
 </tr>
 <tr>
 <td align="center">2</td>
 <td align="center">101</td>
 <td align="center">2 : 2</td>
 <td align="center">2位抢占优先级<br>2位响应优先级</td>
-<td align="center"></td>
+<td align="center">2^2 = 4个抢占优先级<br>2^2 = 4个响应优先级</td>
 </tr>
 <tr>
 <td align="center">3</td>
 <td align="center">100</td>
 <td align="center">3 : 1</td>
 <td align="center">3位抢占优先级<br>1位响应优先级</td>
-<td align="center"></td>
+<td align="center">2^3 = 8个抢占优先级<br>2^1 = 2个响应优先级</td>
 </tr>
 <tr>
 <td align="center">4</td>
 <td align="center">011</td>
 <td align="center">4 : 0</td>
 <td align="center">4位抢占优先级<br>0位响应优先级</td>
-<td align="center"></td>
+<td align="center">2^4 =16个抢占优先级<br>2^0 = 1个响应优先级</td>
 </tr>
 </tbody></table>
 <p>个人比较喜欢的两种优先级配置的写法：</p>
@@ -284,7 +284,7 @@
 <p><img src="/images/stm32_04/7.png" srcset="/img/loading.gif" alt=""></p>
 <h2 id="3-串口收发测试"><a href="#3-串口收发测试" class="headerlink" title="3.串口收发测试"></a>3.串口收发测试</h2><p><img src="/images/stm32_04/8.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_04/9.png" srcset="/img/loading.gif" alt=""></p>
-<h2 id="4-后记"><a href="#4-后记" class="headerlink" title="4.后记"></a>4.后记</h2><p>STM32有空闲中断方便我们超时分包，但是像51等大多是单片机是没有串口空闲中断的。那么该怎么办呢？其实我们使用定时器和计算我们当前使用的波特率下传输一个字节的时间，来判断超时分包，我一般采用超过10个字节当作一包数据。这部分后面和定时器一起讲。</p>
+<h2 id="4-后记"><a href="#4-后记" class="headerlink" title="4.后记"></a>4.后记</h2><p>STM32有空闲中断方便我们超时分包，但是像51等大多是单片机是没有串口空闲中断的。那么该怎么办呢？其实我们使用定时器和计算我们当前使用的波特率下传输一个字节的时间，来判断超时分包就可以了，我一般采用超过10个字节当作一包数据。这部分后面和定时器一起讲。</p>
 
             </article>
             <hr>

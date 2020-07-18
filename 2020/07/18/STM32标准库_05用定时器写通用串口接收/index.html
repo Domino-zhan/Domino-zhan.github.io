@@ -222,6 +222,7 @@
 <p>本实验我们选择定时器3（TIM3）来完成，定时器时钟为84M。然后添加定时器初始函数和定时器3中断服务函数。<br><img src="/images/stm32_05/4.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_05/5.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_05/6.png" srcset="/img/loading.gif" alt=""></p>
+<p><img src="/images/stm32_05/6_1.png" srcset="/img/loading.gif" alt=""></p>
 <h3 id="定时器测试"><a href="#定时器测试" class="headerlink" title="定时器测试"></a>定时器测试</h3><p>先定时500ms，用于打印测试，记得把定时器3的初始化放在串口初始化后面，因为我们在定时器中断服务函数里面打印了数据，所以要防止printf打印时串口没有初始化而导致死机。</p>
 <p><img src="/images/stm32_05/7.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_05/8.png" srcset="/img/loading.gif" alt=""></p>

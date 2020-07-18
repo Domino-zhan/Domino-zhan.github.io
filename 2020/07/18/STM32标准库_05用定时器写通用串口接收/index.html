@@ -218,7 +218,7 @@
 <p>烧录器：STlink或者Jlink。</p>
 <h2 id="2-工程搭建"><a href="#2-工程搭建" class="headerlink" title="2.工程搭建"></a>2.工程搭建</h2><h3 id="注释掉串口空闲中断相关代码"><a href="#注释掉串口空闲中断相关代码" class="headerlink" title="注释掉串口空闲中断相关代码"></a>注释掉串口空闲中断相关代码</h3><p>直接复制上一篇代码,然后先把串口空闲中断给去掉，在uart1_Init和串口1中断服务函数中把串口空闲中断的部分注释掉（当然用<strong>#if</strong>代码会更规范）。<br><img src="/images/stm32_05/1.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_05/2.png" srcset="/img/loading.gif" alt=""></p>
-<h3 id="添加定时器相关代码"><a href="#添加定时器相关代码" class="headerlink" title="添加定时器相关代码"></a>添加定时器相关代码</h3><p>其实用滴答定时器就可以完成本实验的，不过为了介绍一下其他定时器及其中断，所以就选了通用定时器来完成本实验。因为系统初始化SystemInit函数里初始化APB1总线时钟为4分频即42M，APB2总线时钟为2分频即84M(可以查看F407的时钟树)，TIM1、TIM8<del>TIM11的时钟为APB2时钟的两倍即168M，TIM2</del>TIM7、TIM12~TIM14的时钟为APB1时钟的两倍即84M。<br><img src="/images/stm32_05/3.png" srcset="/img/loading.gif" alt=""></p>
+<h3 id="添加定时器相关代码"><a href="#添加定时器相关代码" class="headerlink" title="添加定时器相关代码"></a>添加定时器相关代码</h3><p>其实用滴答定时器就可以完成本实验的，不过为了介绍一下其他定时器及其中断，所以就选了通用定时器来完成本实验。因为系统初始化SystemInit函数里初始化APB1总线时钟为4分频即42M，APB2总线时钟为2分频即84M(可以查看F407的时钟树)，TIM1、TIM8 ~ TIM11的时钟为APB2时钟的两倍即168M，TIM2 ~ TIM7、TIM12 ~ TIM14的时钟为APB1时钟的两倍即84M。<br><img src="/images/stm32_05/3.png" srcset="/img/loading.gif" alt=""></p>
 <p>本实验我们选择定时器3（TIM3）来完成，定时器时钟为84M。然后添加定时器初始函数和定时器3中断服务函数。<br><img src="/images/stm32_05/4.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_05/5.png" srcset="/img/loading.gif" alt=""></p>
 <p><img src="/images/stm32_05/6.png" srcset="/img/loading.gif" alt=""></p>
